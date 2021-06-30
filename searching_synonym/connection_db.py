@@ -101,14 +101,15 @@ class DBHelper(object):
         :return:
         """
         try:
+            result = ()
             self.get_connected()
-            self.cur.execute("SELECT * FROM word300")
+            self.cur.execute("SELECT * FROM word \n")
             result = self.cur.fetchall()
-            for x in result:
-                print(x)
+            # for x in result:
+            #     print(x)
         except:
             pass
-
+        return result
     def close(self):
         """
         Đóng kết nối
@@ -118,11 +119,16 @@ class DBHelper(object):
         self.cur = None
 
 helper = DBHelper('127.0.0.1', 'root', '1234', '3306', 'baitap')
-f = open('3000words.txt', 'r')
-list1 = f.read()
-list1 = list1.split()
 
-sql = 'insert into test_word() values (%s, %s)'
-for i in list1:
-    helper.insert(sql, *i)
-    helper.insert()
+
+
+#test insert function
+
+# f = open('3000words.txt', 'r')
+# list1 = f.read()
+# list1 = list1.split()
+# sql = "insert into word(entry_word) values (%s)"
+# for i in list1:
+#     helper.insert(sql, i)
+#
+# print('done')
